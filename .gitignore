@@ -21,3 +21,6 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+rootCA.pem
+cert-key.pem
+cert.pem
