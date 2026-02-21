@@ -2,6 +2,8 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors";
+import path from "path";
+import fs from "fs";
 import {
   EVENTS, Player, MovePayload,
   CallRequestPayload, CallResponsePayload,
@@ -40,6 +42,18 @@ app.use(express.json());
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", uptime: process.uptime() });
 });
+
+// Temporary: serve the mkcert root CA so phones on the LAN can download
+// and install it to trust the dev HTTPS cert. Remove before deploying.
+const caPath = path.resolve(__dirname, "../../rootCA.pem");
+if (fs.existsSync(caPath)) {
+  app.get("/rootCA.pem", (_req, res) => {
+    res.setHeader("Content-Type", "application/x-pem-file");
+    res.setHeader("Content-Disposition", "attachment; filename=rootCA.pem");
+    res.sendFile(caPath);
+  });
+  console.log("   CA cert: http://10.243.81.34:3001/rootCA.pem\n");
+}
 
 // ─────────────────────────────────────────────────────────────────
 //  IN-MEMORY ROOM STATE
