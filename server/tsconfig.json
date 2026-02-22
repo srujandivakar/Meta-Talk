@@ -4,15 +4,16 @@
     "module": "commonjs",
     "lib": ["ES2020", "DOM"],
     "outDir": "./dist",
-    "rootDir": "../",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": "../",
     "paths": {
-      "@mping/shared": ["../shared/src/index.ts"]
+      "@mping/shared": ["shared/src/index.ts"]
     }
   },
-  "include": ["src/**/*", "../shared/src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
