@@ -24,22 +24,9 @@
 <table>
   <tr>
     <td><img src=".github/screenshots/multiplayer.png" alt="Multiplayer" /></td>
-    <td><img src=".github/screenshots/city-district.png" alt="City District" /></td>
   </tr>
   <tr>
     <td align="center"><em>Real-time multiplayer interaction</em></td>
-    <td align="center"><em>City district with white buildings</em></td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td><img src=".github/screenshots/lake-area.png" alt="Lake Area" /></td>
-    <td><img src=".github/screenshots/character-detail.png" alt="Character" /></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Sparkling lake with water animations</em></td>
-    <td align="center"><em>Realistic human character with animations</em></td>
   </tr>
 </table>
 
@@ -69,11 +56,8 @@ Built-in voice chat system powered by WebRTC for seamless communication:
 <table>
   <tr>
     <td><img src=".github/screenshots/calling.png" alt="Outgoing Call" /></td>
-    <td><img src=".github/screenshots/incoming.png" alt="Incoming Call" /></td>
-  </tr>
   <tr>
-    <td align="center"><em>Initiate voice calls to nearby players</em></td>
-    <td align="center"><em>Accept or decline incoming voice calls</em></td>
+    <td align="center"><em>Initiate voice calls to nearby players <br> Accept or decline incoming voice calls</em></td>
   </tr>
 </table>
 </div>
