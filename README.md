@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🌍 Metaverse-T
+# 🌍 Meta-Talk
+
 
 ### A Real-Time Multiplayer Metaverse Experience
 
