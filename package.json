@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
-    "build": "npm run build --workspace=shared && npm run build --workspace=server && npm run build --workspace=client"
+    "build": "npm run build --workspace=shared && npm run build --workspace=server && npm run build --workspace=client",
+    "build:server": "npm run build --workspace=server",
+    "start:server": "npm start --workspace=server"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
