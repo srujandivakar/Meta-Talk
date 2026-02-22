@@ -3,6 +3,11 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import fs from "fs";
 
+// Check if SSL certs exist (only for local development)
+const certKeyPath = path.resolve(__dirname, "../cert-key.pem");
+const certPath = path.resolve(__dirname, "../cert.pem");
+const hasSSLCerts = fs.existsSync(certKeyPath) && fs.existsSync(certPath);
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -14,13 +19,13 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
-    // Use mkcert-generated certs so browsers show a green padlock instead
-    // of a "Not Secure" warning. Run `mkcert -install` once on your machine
-    // to trust these certs system-wide (already done).
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, "../cert-key.pem")),
-      cert: fs.readFileSync(path.resolve(__dirname, "../cert.pem")),
-    },
+    // HTTPS only for local development when certs are available
+    ...(hasSSLCerts && {
+      https: {
+        key: fs.readFileSync(certKeyPath),
+        cert: fs.readFileSync(certPath),
+      },
+    }),
     proxy: {
       "/socket.io": {
         target: "http://localhost:3001",
